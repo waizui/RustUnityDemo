@@ -1,0 +1,23 @@
+[package]
+name = "csbindgenlib"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# [[bin]]
+# name = "csbindgen-test-app"
+# path = "src/main.rs"
+
+[lib]
+crate-type = ["cdylib"]
+path = "src/lib.rs"
+
+[dependencies]
+csbindgen = { path = "../csbindgen" }
+bitflags = "2.1.0"
+# physx-sys = "0.11.0"
+
+[build-dependencies]
+cc = "1.0.79"
+bindgen = "0.69.4"
+csbindgen = { path = "../csbindgen" }
