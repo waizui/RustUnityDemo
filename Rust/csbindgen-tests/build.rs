@@ -3,6 +3,7 @@ use std::fs;
 use std::path::Path;
 
 fn main() -> Result<(), Box<dyn Error>> {
+    // generated csharp file
     let cs_path = "../../Assets/Scripts/Gen/NativeMethods.cs";
     let lib_name = "csbindgenlib";
 
@@ -24,8 +25,9 @@ fn main() -> Result<(), Box<dyn Error>> {
         //     _ => x,
         // })
         .generate_csharp_file(cs_path)?; // required
-
-    let dest_bin_path = "../../Assets/Plugins/macOS/";
+    
+    // unity special folder, dll under this folder will not be compiled when changing
+    let dest_bin_path = "../../Assets/StreamingAssets/";
     fs::create_dir_all(dest_bin_path)?;
 
     let mac_src_path = format!("target/debug/lib{}.dylib", lib_name);
