@@ -11,7 +11,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         .input_extern_file("src/lib.rs") // required
         .csharp_dll_name(lib_name) // required
         .csharp_class_name("NativeMethods") // optional, default: NativeMethods
-        .csharp_namespace("CsBindgen") // optional, default: CsBindgen
+        .csharp_namespace("CsBindgen"); // optional, default: CsBindgen
         // .csharp_class_accessibility("internal") // optional, default: internal
         // .csharp_entry_point_prefix("") // optional, default: ""
         // .csharp_method_prefix("") // optional, default: ""
@@ -24,7 +24,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         //     "FfiConfiguration" => "Configuration".into(),
         //     _ => x,
         // })
-        .generate_csharp_file(cs_path)?; // required
+        // .generate_csharp_file(cs_path)?; // required
     
     // unity special folder, dll under this folder will not be compiled when changing
     let dest_bin_path = "../../Assets/StreamingAssets/";
